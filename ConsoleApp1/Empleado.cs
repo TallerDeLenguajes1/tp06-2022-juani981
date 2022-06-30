@@ -34,47 +34,44 @@ public class Empleado
     public int Antiguedad()
     {
         DateTime fecha_actual = DateTime.Today;
-        int Antiguedad = fecha_actual.Year - Fecha_Ingreso1.Year;
+        int Antiguedad = fecha_actual.Year - Fecha_Ingreso.Year;
         return Antiguedad;
     }
     public int Edad()
     {
         DateTime fecha_actual = DateTime.Today;
-        int edad = fecha_actual.Year - Fecha_Nac1.Year;
-        return edad;
-    }
-    public int Edad()
-    {
-        DateTime fecha_actual = DateTime.Today;
-        int edad = fecha_actual.Year - Fecha_Nac1.Year;
+        int edad = fecha_actual.Year - Fecha_Nac.Year;
         return edad;
     }
     public int anios_jubilacion()
     {
         int anios;
 
-        if (Genero1 == 'm')
+        if (Genero == 'm')
         {
+            //mujer
             anios = 60 - Edad();
             return anios;
         }
-        if (Genero1 == 'v')
+        else
         {
+            // varon, tambien se considera como valor por defecto si no se especifica el genero
             anios = 65 - Edad();
             return anios;
         }
+           
     }
     public double Salario()
     {
-        double salario = Sueldo_Basico1;
+        double salario = Sueldo_Basico;
 
         if (anios_jubilacion() > 0 && anios_jubilacion() < 20)//
         {
-            salario = Sueldo_Basico1 * (Antiguedad() / 100);
-            if (Cargo1 == Cargos.Especialista || Cargo1 == Cargos.Ingeniero)
+            salario = Sueldo_Basico * (Antiguedad() / 100);
+            if (Cargo == Cargos.Especialista || Cargo == Cargos.Ingeniero)
             {
                 salario = salario * 1.5;
-                if (Estado_Civil1 == 'c')
+                if (Estado_Civil == 'c')
                 {
                     salario = salario + 15000;
 
@@ -82,7 +79,7 @@ public class Empleado
             }
             else
             {
-                if (Estado_Civil1 == 'c')
+                if (Estado_Civil == 'c')
                 {
                     salario = salario + 15000;
                 }
@@ -92,11 +89,11 @@ public class Empleado
         {
             if (anios_jubilacion() >= 20)
             {
-                salario = Sueldo_Basico1 * 1.25 * Antiguedad();
-                if (Cargo1 == Cargos.Especialista || Cargo1 == Cargos.Ingeniero)
+                salario = Sueldo_Basico * 1.25 * Antiguedad();
+                if (Cargo == Cargos.Especialista || Cargo == Cargos.Ingeniero)
                 {
                     salario = salario * 1.5;
-                    if (Estado_Civil1 == 'c')
+                    if (Estado_Civil == 'c')
                     {
                         salario = salario + 15000;
 
@@ -104,7 +101,7 @@ public class Empleado
                 }
                 else
                 {
-                    if (Estado_Civil1 == 'c')
+                    if (Estado_Civil == 'c')
                     {
                         salario = salario + 15000;
 

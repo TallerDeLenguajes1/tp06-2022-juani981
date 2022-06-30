@@ -2,37 +2,36 @@
 using System.Collections.Generic;
 using System;
 
-int opcion = 0;
+
+//Punto 1
+int opcion;
 Calculadora calc = new Calculadora(0);
 
-do
-{
+do{
     Console.WriteLine("\nQue operacion desea realizar?");
-    Console.WriteLine("SUMAR---> 1  -  RESTAR---> 2  -  MULTIPLICAR---> 3  -  DIVIDIR---> 4  -  LIMPIAR---> 5  -  SALIR---> 6:  ");
+    Console.WriteLine("SUMAR-> 1  -  RESTAR-> 2  -  MULTIPLICAR-> 3  -  DIVIDIR-> 4  -  LIMPIAR-> 5  -  SALIR-> 6:  ");
     opcion = Convert.ToInt32(Console.ReadLine());
 
-    double opcion = 0;
+    double num = 0;
 
-    if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4)
-    {
-        Console.WriteLine("Ingrese una opción: ");
-        opcion = Convert.ToDouble(Console.ReadLine());
+    if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4){
+        Console.WriteLine("Ingrese un numero: ");
+        num = Convert.ToDouble(Console.ReadLine());
     }
+    
 
-
-    switch (opcion)
-    {
+    switch (opcion){
         case 1:
-            calc.Sumar(opcion);
+            calc.Sumar(num);
             break;
         case 2:
-            calc.Restar(opcion);
+            calc.Restar(num);
             break;
         case 3:
-            calc.Multiplicar(opcion);
+            calc.Multiplicar(num);
             break;
         case 4:
-            calc.Dividir(opcion);
+            calc.Dividir(num);
             break;
         case 5:
             calc.Limpiar();
@@ -45,3 +44,4 @@ do
 
 
 } while (opcion != 6);
+
